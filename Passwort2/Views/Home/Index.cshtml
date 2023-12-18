@@ -1,0 +1,41 @@
+﻿@model Passwort2.Models.Passwort
+@{
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<h1>Passwort Generator</h1>
+<p>Generiert ein Passwort mit den gewünschten Eigenschaften</p>
+<form action="/home/Index" method="post">
+    @* <label for="Anzahl">Anzahl der Passwörter</label>
+    <input type="number" name="Anzahl" value="@Model.Anzahl" />
+    <br /> *@
+    <label for="Länge">Länge des Passworts</label>
+    <input type="number" name="Länge" value="@Model.Länge" />
+    <br />
+    <label for="Buchstaben">Großbuchstaben</label>
+    <input type="number" name="Buchstaben" value="@Model.Buchstaben" />
+    <br />
+    <label for="Zahlen">Ziffern</label>
+    <input type="number" name="Zahlen" value="@Model.Zahlen" />
+    <br />
+    <label for="Sonderzeichen">Sonderzeichen</label>
+    <input type="number" name="Sonderzeichen" value="@Model.Sonderzeichen" />
+    <br />
+    <input type="submit" value="Generieren" />
+</form>
+<p>@ViewBag.Message</p>
+@if (ViewData["Passwörter"] != null)
+{
+
+    @foreach (string password in ViewData["Passwörter"] as List<string>)
+    {
+        <p>@password</p>
+    }
+}
+
